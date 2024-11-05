@@ -212,10 +212,11 @@ def main(
         for query, t in cam_from_world.items():
             qvec = " ".join(map(str, t.rotation.quat[[3, 0, 1, 2]]))
             tvec = " ".join(map(str, t.translation))
-            name = query.split("/")[-1]
-            if prepend_camera_name:
-                name = query.split("/")[-2] + "/" + name
-            f.write(f"{name} {qvec} {tvec}\n")
+            #name = query.split("/")[-1]
+            #if prepend_camera_name:
+            #    name = query.split("/")[-2] + "/" + name
+            #f.write(f"{name} {qvec} {tvec}\n")
+            f.write(f"{query} {qvec} {tvec}\n")
 
     logs_path = f"{results}_logs.pkl"
     logger.info(f"Writing logs to {logs_path}...")
